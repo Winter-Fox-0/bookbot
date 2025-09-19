@@ -1,11 +1,14 @@
+import sys
 from stats import word_counter, char_count, split
 def main():
-    book = "./books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    else:
+        book = sys.argv[1]
     maintext = get_book_text(book)
     word_count = word_counter(maintext)
     char_dic = split(char_count(maintext))
-    #print(char_dic)
-    #split(char_dic)
     format(book,word_count,char_dic)
     
 
